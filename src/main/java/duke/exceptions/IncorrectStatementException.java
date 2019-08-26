@@ -1,3 +1,5 @@
+package duke.exceptions;
+
 public class IncorrectStatementException extends InvalidCommandError {
     private String actualStatement;
     private String givenStatement;

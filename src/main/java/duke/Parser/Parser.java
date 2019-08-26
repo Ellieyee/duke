@@ -1,3 +1,14 @@
+package duke.Parser;
+
+import duke.command.*;
+import duke.exceptions.IncompleteCommandError;
+import duke.exceptions.InvalidCommandError;
+import duke.exceptions.UnknownCommandException;
+import duke.task.DeadlineTask;
+import duke.task.EventTask;
+import duke.task.TaskList;
+import duke.task.ToDoTask;
+
 import java.util.Optional;
 
 public class Parser {

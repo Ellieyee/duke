@@ -1,3 +1,8 @@
+import duke.Parser.Parser;
+import duke.command.Command;
+import duke.command.UI;
+import duke.task.TaskList;
+
 import java.util.Optional;
 import java.util.Scanner;
 

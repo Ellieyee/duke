@@ -1,3 +1,7 @@
+package duke.task;
+
+import duke.exceptions.IncorrectStatementException;
+
 public class EventTask extends Task {
     private static final String DEFAULT_EVENT_ICON = "[E]";
     private static final String EVENT_TASK_STATEMENT = "at";
