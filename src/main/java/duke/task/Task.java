@@ -1,3 +1,7 @@
+package duke.task;
+
+import duke.task.ITask;
+
 public class Task implements ITask {
     private static final String DEFAULT_TASK_TYPE = "Default";
     private String taskName;
@@ -18,7 +22,7 @@ public class Task implements ITask {
         this.taskType = taskType;
     }
 
-    /** Marks Task as Done **/
+    /** Marks duke.task.Task as Done **/
     public void markDone() {
         this.isDone = true;
     }

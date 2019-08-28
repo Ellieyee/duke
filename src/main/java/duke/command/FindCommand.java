@@ -1,3 +1,8 @@
+package duke.command;
+
+import duke.task.Task;
+import duke.task.TaskList;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,12 +31,27 @@ public class FindCommand extends Command {
             }
         }
         if (list.size() == 0) {
-            UI.printNoKeywordMessage(this.taskName);
+            this.printNoKeywordMessage();
         } else {
-            UI.printFoundKeywordMessage();
+            this.printFoundKeywordMessage();
             for (int i = 0; i < list.size(); i++) {
                 System.out.println((i+1) + "." + list.get(i));
             }
         }
+    }
+
+    /**
+     * Prints out message after tasks are found matching the given keyword
+     */
+    private void printFoundKeywordMessage() {
+        System.out.println("Here are the matching tasks in your list:");
+    }
+
+    /**
+     * Prints out message after no tasks are found matching the given keyword
+     */
+    private void printNoKeywordMessage() {
+        System.out.println("☹ OOPS!!! There are no matching tasks in the list with the keyword: \"" +
+                this.taskName + "\".");
     }
 }

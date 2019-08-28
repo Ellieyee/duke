@@ -1,3 +1,5 @@
+import duke.task.*;
+
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -17,8 +19,8 @@ public class DataStorage {
     }
 
     /**
-     * Retrieves tasks from given txt file and stores into new TaskList
-     * @return TaskList - list containing all existing tasks
+     * Retrieves tasks from given txt file and stores into new duke.task.TaskList
+     * @return duke.task.TaskList - list containing all existing tasks
      */
     public static TaskList getStoredTaskList() {
         File file = new File(PATH);
@@ -29,7 +31,7 @@ public class DataStorage {
             int idx = 0;
             while ((command = br.readLine()) != null) {
                 String[] taskInfo = command.split("\\|");
-                switch(taskInfo[0]) {
+                switch (taskInfo[0]) {
                 case "Deadline":
                     taskList.add(new DeadlineTask(taskInfo[2], taskInfo[3]));
                     break;

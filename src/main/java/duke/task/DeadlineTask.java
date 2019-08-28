@@ -1,3 +1,8 @@
+package duke.task;
+
+import duke.exception.IncorrectStatementException;
+import duke.task.Task;
+
 public class DeadlineTask extends Task {
     private static final String DEFAULT_DEADLINE_ICON = "[D]";
     private static final String DEADLINE_TASK_STATEMENT = "by";

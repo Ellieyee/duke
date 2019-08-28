@@ -1,3 +1,8 @@
+package duke.command;
+
+import duke.task.Task;
+import duke.task.TaskList;
+
 public class DoneCommand extends Command {
     private int idx;
 
@@ -18,6 +23,15 @@ public class DoneCommand extends Command {
     public void execute(TaskList taskList) {
         Task task = taskList.get(idx);
         taskList.done(this.idx);
-        UI.printSuccessfulDoneMessage(task);
+        this.printSuccessfulDoneMessage(task);
+    }
+
+    /**
+     * Prints out message after successful marking of task
+     * @param task - duke.task.Task that has been successfully marked done
+     */
+    private void printSuccessfulDoneMessage(Task task) {
+        System.out.println("Nice! I've marked this task as done:");
+        System.out.println("  " + task);
     }
 }
