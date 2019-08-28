@@ -25,6 +25,7 @@ public class EventTask extends Task {
         }
     }
 
+    /** Returns task duration **/
     public String getDuration() {
         return this.duration;
     }

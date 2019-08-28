@@ -1,5 +1,6 @@
 public abstract class Command {
     private Task task;
+
     /**
      * Constructor
      * @param task - Task given to execute command

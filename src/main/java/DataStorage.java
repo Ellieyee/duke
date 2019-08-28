@@ -3,7 +3,6 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 public class DataStorage {
     private static final String PATH = "C:\\Users\\ellieyeewenna\\Desktop\\Ellie\\NUS\\CS2103\\IP\\data\\duke.txt";
-
     /**
      * Stores all tasks in tasklist into given txt file
      * @param taskList - list containing all existing tasks
@@ -31,17 +30,17 @@ public class DataStorage {
             while ((command = br.readLine()) != null) {
                 String[] taskInfo = command.split("\\|");
                 switch(taskInfo[0]) {
-                    case "Deadline":
-                        taskList.add(new DeadlineTask(taskInfo[2], taskInfo[3]));
-                        break;
-                    case "Event":
-                        taskList.add(new EventTask(taskInfo[2], taskInfo[3]));
-                        break;
-                    case "Todo":
-                        taskList.add(new ToDoTask(taskInfo[2]));
-                        break;
+                case "Deadline":
+                    taskList.add(new DeadlineTask(taskInfo[2], taskInfo[3]));
+                    break;
+                case "Event":
+                    taskList.add(new EventTask(taskInfo[2], taskInfo[3]));
+                    break;
+                case "Todo":
+                    taskList.add(new ToDoTask(taskInfo[2]));
+                    break;
                 }
-                if(taskInfo[1].equals("1")) { taskList.done(idx); }
+                if (taskInfo[1].equals("1")) { taskList.done(idx); }
                 idx++;
             }
         } catch (Exception e) {
@@ -57,25 +56,25 @@ public class DataStorage {
      */
     private static String getStringContent(TaskList taskList) {
         String contents = "";
-        for(int i = 0; i < taskList.size(); i ++) {
+        for (int i = 0; i < taskList.size(); i++) {
             Task task = taskList.get(i);
             String taskType = task.getTaskType();
             String isDone = (task.isDone()) ? "1" : "0";
             String taskName = task.getName();
-            switch(task.getTaskType()) {
-                case "Deadline":
-                    DeadlineTask deadLineTask = (DeadlineTask) task; // Check coding standard
-                    String deadline = deadLineTask.getDeadline();
-                    contents += taskType + "|" + isDone + "|" + taskName + "|" + deadline + "\n";
-                    break;
-                case "Event":
-                    EventTask eventTask = (EventTask) task;
-                    String duration = eventTask.getDuration();
-                    contents += taskType + "|" + isDone + "|" + taskName + "|" + duration + "\n";
-                    break;
-                case "Todo":
-                    contents += taskType + "|" + isDone + "|" + taskName + "\n";
-                    break;
+            switch (task.getTaskType()) {
+            case "Deadline":
+                DeadlineTask deadLineTask = (DeadlineTask) task; // Check coding standard
+                String deadline = deadLineTask.getDeadline();
+                contents += taskType + "|" + isDone + "|" + taskName + "|" + deadline + "\n";
+                break;
+            case "Event":
+                EventTask eventTask = (EventTask) task;
+                String duration = eventTask.getDuration();
+                contents += taskType + "|" + isDone + "|" + taskName + "|" + duration + "\n";
+                break;
+            case "Todo":
+                contents += taskType + "|" + isDone + "|" + taskName + "\n";
+                break;
             }
         }
         return contents;

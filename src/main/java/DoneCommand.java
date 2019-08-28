@@ -1,5 +1,6 @@
 public class DoneCommand extends Command {
     private int idx;
+
     /**
      * Constructor
      * @param idx - Index of task to delete

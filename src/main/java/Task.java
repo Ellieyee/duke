@@ -18,9 +18,7 @@ public class Task implements ITask {
         this.taskType = taskType;
     }
 
-    /**
-     * Marks Task as Done
-     */
+    /** Marks Task as Done **/
     public void markDone() {
         this.isDone = true;
     }
@@ -44,14 +42,17 @@ public class Task implements ITask {
         return "✗";
     }
 
+    /** Returns task type **/
     public String getTaskType() {
         return this.taskType;
     }
 
+    /** Returns true if task is done, else returns false **/
     public boolean isDone() {
         return this.isDone;
     }
 
+    /** Returns task icon **/
     private String getTaskIcon() {
         return this.taskIcon;
     }

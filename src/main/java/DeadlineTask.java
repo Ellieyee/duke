@@ -25,6 +25,7 @@ public class DeadlineTask extends Task {
         }
     }
 
+    /** Returns the task deadline **/
     public String getDeadline() {
         return this.deadLine;
     }

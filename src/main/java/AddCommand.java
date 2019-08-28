@@ -1,5 +1,6 @@
 public class AddCommand extends Command {
     private Task task;
+
     /**
      * Constructor
      * @param task - Task given to execute command

@@ -16,21 +16,21 @@ public class Parser {
         String taskName = commandDescription[0];
         try {
             switch (taskName) {
-                case "list":
-                    return this.parseListCommand(fullCommand);
-                case "delete":
-                    return this.parseDeleteCommand(commandDescription);
-                case "done":
-                    return this.parseDoneCommand(commandDescription);
-                case "todo":
-                    return this.parseAddWithoutDateCommand(commandDescription);
-                case "deadline":
-                case "event":
-                    return this.parseAddWithDateCommand(commandDescription);
-                case "find":
-                    return this.parseFindCommand(commandDescription);
-                default:
-                    throw new UnknownCommandException(commandDescription[0]);
+            case "list":
+                return this.parseListCommand(fullCommand);
+            case "delete":
+                return this.parseDeleteCommand(commandDescription);
+            case "done":
+                return this.parseDoneCommand(commandDescription);
+            case "todo":
+                return this.parseAddWithoutDateCommand(commandDescription);
+            case "deadline":
+            case "event":
+                return this.parseAddWithDateCommand(commandDescription);
+            case "find":
+                return this.parseFindCommand(commandDescription);
+            default:
+                throw new UnknownCommandException(commandDescription[0]);
             }
         } catch (UnknownCommandException e) {
             System.out.println(e.getMessage());
@@ -68,12 +68,12 @@ public class Parser {
             String[] statementAndDate = taskArray[1].split("\\s+", 2);
             DateTimeParser.validateDateFormat(statementAndDate[1]);
             switch(taskType) {
-                case "deadline":
-                    DeadlineTask.verifyTaskStatement(statementAndDate[0].toLowerCase());
-                    return Optional.of(new AddCommand(new DeadlineTask(taskName, statementAndDate[1])));
-                case "event":
-                    EventTask.verifyTaskStatement(statementAndDate[0].toLowerCase());
-                    return Optional.of(new AddCommand(new EventTask(taskName, statementAndDate[1])));
+            case "deadline":
+                DeadlineTask.verifyTaskStatement(statementAndDate[0].toLowerCase());
+                return Optional.of(new AddCommand(new DeadlineTask(taskName, statementAndDate[1])));
+            case "event":
+                EventTask.verifyTaskStatement(statementAndDate[0].toLowerCase());
+                return Optional.of(new AddCommand(new EventTask(taskName, statementAndDate[1])));
             }
         } catch (IndexOutOfBoundsException e) {
             throw new IncompleteCommandError("incomplete", commandDescription[0]);
@@ -91,7 +91,7 @@ public class Parser {
     private Optional<Command> parseDeleteCommand(String[] commandDescription) throws RuntimeException, IncompleteCommandError {
         this.checkCommandEmpty(commandDescription);
         int idx = Integer.parseInt(commandDescription[1]) - 1;
-        if(idx >= this.taskList.size()) { throw new IndexOutOfBoundsException(); }
+        if (idx >= this.taskList.size()) { throw new IndexOutOfBoundsException(); }
         return Optional.of(new DeleteCommand(idx));
     }
 
@@ -105,7 +105,7 @@ public class Parser {
     private Optional<Command> parseDoneCommand(String[] commandDescription) throws RuntimeException, IncompleteCommandError {
         this.checkCommandEmpty(commandDescription);
         int idx = Integer.parseInt(commandDescription[1]) - 1;
-        if(idx >= this.taskList.size()) { throw new IndexOutOfBoundsException(); }
+        if (idx >= this.taskList.size()) { throw new IndexOutOfBoundsException(); }
         return Optional.of(new DoneCommand(idx));
     }
 
@@ -136,7 +136,7 @@ public class Parser {
      * @throws IncompleteCommandError - throws error if the command is not in complete format
      */
     private void checkCommandEmpty(String[] commandDescription) throws IncompleteCommandError {
-        if(commandDescription.length == 1) {
+        if (commandDescription.length == 1) {
             throw new IncompleteCommandError("empty", commandDescription[0]);
         }
     }
