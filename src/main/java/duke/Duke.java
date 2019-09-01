@@ -1,3 +1,5 @@
+package duke;
+
 import duke.command.Command;
 import duke.parser.ParserManager;
 import duke.task.TaskList;
@@ -19,9 +21,9 @@ public class Duke {
 
     public static void main(String[] args) {
         Duke.init();
-        UI.printWelcomeMessage();
+        Ui.printWelcomeMessage();
         runEvents();
-        UI.printGoodbyeMessage();
+        Ui.printGoodbyeMessage();
         DataStorage.storeTaskList(taskList);
     }
 
