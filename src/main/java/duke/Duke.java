@@ -10,12 +10,14 @@ import java.util.Scanner;
 public class Duke {
     private static TaskList taskList;
     private static ParserManager parserManager;
+    private static DataStorage dataStorage;
 
     /**
      * Initialize static variables
      */
     public static void init() {
-        taskList = DataStorage.getStoredTaskList();
+        dataStorage = new DataStorage();
+        taskList = dataStorage.getStoredTaskList();
         parserManager = new ParserManager();
     }
 
@@ -24,7 +26,7 @@ public class Duke {
         Ui.printWelcomeMessage();
         runEvents();
         Ui.printGoodbyeMessage();
-        DataStorage.storeTaskList(taskList);
+        dataStorage.storeTaskList(taskList);
     }
 
     /**
