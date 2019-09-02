@@ -1,8 +1,8 @@
 package duke.parser;
 
 import duke.command.*;
-import duke.exception.IncompleteCommandError;
-import duke.exception.UnknownCommandException;
+import duke.command.IncompleteCommandError;
+import duke.command.UnknownCommandException;
 import duke.task.TaskList;
 
 import java.util.Optional;

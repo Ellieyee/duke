@@ -2,7 +2,7 @@ package duke.parser;
 
 import duke.command.Command;
 import duke.command.ListCommand;
-import duke.exception.InvalidCommandError;
+import duke.command.InvalidCommandError;
 
 import java.util.Optional;
 

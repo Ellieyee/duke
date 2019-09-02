@@ -2,8 +2,8 @@ package duke.parser;
 
 import duke.command.AddCommand;
 import duke.command.Command;
-import duke.exception.IncompleteCommandError;
-import duke.exception.UnknownCommandException;
+import duke.command.IncompleteCommandError;
+import duke.command.UnknownCommandException;
 import duke.task.DeadlineTask;
 import duke.task.EventTask;
 import duke.task.ToDoTask;

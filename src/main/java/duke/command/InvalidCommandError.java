@@ -1,4 +1,4 @@
-package duke.exception;
+package duke.command;
 
 public class InvalidCommandError extends UnknownCommandException {
     private String message;
