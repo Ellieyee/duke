@@ -1,6 +1,6 @@
 package duke.command;
 
-public class IncorrectStatementException extends InvalidCommandError {
+public class IncorrectStatementException extends UnknownCommandException {
     private String actualStatement;
     private String givenStatement;
     /**
