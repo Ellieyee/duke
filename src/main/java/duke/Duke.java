@@ -26,7 +26,6 @@ public class Duke {
         Ui.printWelcomeMessage();
         runEvents();
         Ui.printGoodbyeMessage();
-        dataStorage.storeTaskList(taskList);
     }
 
     /**
@@ -38,6 +37,7 @@ public class Duke {
         while (!inputCommand.toLowerCase().equals("bye")) {
             Optional<Command> fullCommand = parserManager.parseCommand(taskList, inputCommand);
             fullCommand.ifPresent(command -> command.execute(taskList));
+            dataStorage.storeTaskList(taskList);
             inputCommand = sc.nextLine().trim();
         }
     }
